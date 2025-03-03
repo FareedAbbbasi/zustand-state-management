@@ -1,12 +1,20 @@
 // import React from "react";
-import './Column.css'
-import Task from './Task';
+import { useState } from "react";
+import "./Column.css";
+import Task from "./Task";
 
 const Column = ({ state }) => {
-    return <div className="column">
-       <p>{state}</p> 
-       <Task title="todo" />
-        </div>;
+  const tasks = useState((store) => {
+    store.tasks.filter((task) => task.state === state);
+  });
+  return (
+    <div className="column">
+      <p>{state}</p>
+      {tasks.map((task) => (
+        <Task title={task.title} key={task.title} />
+      ))}
+    </div>
+  );
 };
 
 export default Column;

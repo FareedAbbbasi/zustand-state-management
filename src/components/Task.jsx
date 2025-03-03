@@ -1,18 +1,19 @@
-import React from 'react'
-import "./Task.css"
+import React from "react";
+import "./Task.css";
+import classname from "classname";
 
-const STATUS = 'PLANNING';
+const STATUS = "PLANNED";
 
-const Task = ({title}) => {
+const Task = ({ title }) => {
   return (
-    <div className='task'>
-        <div>{title}</div>
-        <div>
-            <div></div>
-            <div className='STATUS'>{STATUS}</div>
-        </div>
+    <div className="task">
+      <div>{title}</div>
+      <div className="buttonWrapper">
+        <div></div>
+        <div className={classname("status", STATUS)}>{STATUS}</div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Task
+export default Task;
